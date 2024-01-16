@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38093386342",
+    "project_id": "mylion-notes",
+    "storage_bucket": "mylion-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38093386342:android:c58bae8fb15416819373a7",
+        "android_client_info": {
+          "package_name": "es.aslansn.mynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyp1pwFs9AGxJoMeaFlb5srMj9eyWmsRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
