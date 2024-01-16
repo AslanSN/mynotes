@@ -41,9 +41,13 @@ class HomePage extends StatelessWidget {
               case ConnectionState.done:
                 final user = FirebaseAuth.instance.currentUser;
                 if (user?.emailVerified ?? false) {
-                  print('You are a verified user');
                 } else {
-                  print('You need to verify your email');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const VerifyEmailView(),
+                    ),
+                  );
+                  return const Text('You need to verify your email');
                 }
                 return const Text('Done');
               default:
@@ -51,5 +55,37 @@ class HomePage extends StatelessWidget {
             }
           },
         ));
+  }
+}
+
+class VerifyEmailView extends StatefulWidget {
+  const VerifyEmailView({super.key});
+
+  @override
+  State<VerifyEmailView> createState() => _VerifyEmailViewState();
+}
+
+class _VerifyEmailViewState extends State<VerifyEmailView> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Verify email'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            const Text('Please verify your email'),
+            TextButton(
+              onPressed: () async {
+                final user = FirebaseAuth.instance.currentUser;
+                await user?.sendEmailVerification();
+              },
+              child: const Text('Send email verification'),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
